@@ -1,0 +1,35 @@
+.nav-btn {
+    position: absolute;
+    right: 5%;
+    top: 35px;
+    z-index: 1;
+}
+
+.btn-default{
+	margin-right: 15px;
+}
+
+.logo-img{
+position: absolute;
+    left: 5%;
+    top: 35px;
+	z-index:1;
+}
+
+.welcome-caption{
+  margin: 5%;
+  font-weight: bold;
+  color: #4F4F4F
+}
+
+.welcome-background btn {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.welcome-background{
+	border-style: solid;
+  border-width: 5px; 
+  background-color: #fff;
+  opacity: 0.6;
+}
