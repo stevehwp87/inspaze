@@ -1,3 +1,6 @@
+@import "font-awesome-sprockets";
+ @import "font-awesome";
+ 
 .nav-btn {
     position: absolute;
     right: 5%;
@@ -6,11 +9,11 @@
 }
 
 .btn-default{
-	margin-right: 15px;
+	margin-right: 5px;
 }
 
 .logo-img{
-position: absolute;
+	position: absolute;
     left: 5%;
     top: 35px;
 	z-index:1;
@@ -33,3 +36,4 @@ position: absolute;
   background-color: #fff;
   opacity: 0.6;
 }
+

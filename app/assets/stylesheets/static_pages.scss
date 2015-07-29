@@ -1,3 +1,46 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.container{
+	position: absolute;
+    top: 18%;
+    left: 10%;
+}
+
+.users_type{
+  background-image:url('users_type_background.jpg');
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.text{
+	color: #fff;
+	text-align: center;
+	padding-top: 35px;
+}
+
+.text h1{
+	font-size: 5.0vw;
+}
+
+.text h3{
+	font-size: 1.8vw;
+}
+
+
+.describe {
+	padding: 15px 35px;
+	text-align: center;
+}
+
+.describe h1{
+  font-size: 4vw;
+}
+
+.row {
+	position: absolute;
+    left: 5%;
+}

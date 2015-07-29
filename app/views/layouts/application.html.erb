@@ -2,13 +2,25 @@
 <html>
 <head>
   <title><%= full_title(yield(:title)) %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.indigo-pink.min.css">
+<script src="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
-<body>
+	<body>
+		<div class="logo-img">
+		  <img src="assets/logo.png">
+		</div>
+		<div class="nav-btn">
+			<button type="button" class="btn btn-default btn-md">Sign Up</button>
+			<button type="button" class="btn btn-default btn-md">Sign In</button>
+		</div>
+		<%= yield %>
 
-<%= yield %>
-
-</body>
+	</body>
 </html>
