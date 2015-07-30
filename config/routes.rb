@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  get 'designers/new'
+
+  get 'users/new'
+
   root             'static_pages#home'
   get 'users_type'    => 'static_pages#users_type'
-
+  resources :users
+  resources :designers
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
