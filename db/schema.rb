@@ -14,8 +14,23 @@
 ActiveRecord::Schema.define(version: 20150729090121) do
 
   create_table "designers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "date_of_birth"
+    t.string   "gender"
+    t.integer  "phone_no"
+    t.string   "company_name"
+    t.text     "location"
+    t.string   "years_in_business"
+    t.string   "profession"
+    t.string   "name_to_show"
+    t.string   "email_to_show"
+    t.integer  "contact_to_show"
+    t.string   "website"
+    t.string   "business_description"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "users", force: :cascade do |t|

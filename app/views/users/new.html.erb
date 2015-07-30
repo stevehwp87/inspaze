@@ -17,11 +17,11 @@ $(function() {
     $('input[name="birthdate"]').daterangepicker({
         singleDatePicker: true,
         showDropdowns: true
-    }, 
-    function(start, end, label) {
-        var years = moment().diff(start, 'years');
-        alert("You are " + years + " years old.");
     });
+    // function(start, end, label) {
+    //     var years = moment().diff(start, 'years');
+    //     alert("You are " + years + " years old.");
+    // });
 });
 </script>
 
@@ -144,7 +144,7 @@ $(function() {
 
 					<div class="form-group">
 						<div class="col-md-8 col-md-offset-4">
-							<%= f.submit "Create my account", class: "btn btn-primary" %>
+							<%= f.submit "Save", class: "btn btn-primary" %>
 						</div>
 					<% end %>
 					</div>
