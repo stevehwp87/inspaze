@@ -4,29 +4,63 @@
   <title><%= full_title(yield(:title)) %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.indigo-pink.min.css">
-<script src="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
-
-
-
-
-  
+    <link href="bootstrap.min.css" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+
+</style>
 </head>
 	<body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+
 		<div class="logo-img">
-		  <img src="../assets/logo.png">
+
+		  <img src="../assets/logo.png" class="img-responsive">
 		</div>
-		<div class="nav-btn">
-			<button type="button" class="btn btn-default btn-md">Sign Up</button>
-			<button type="button" class="btn btn-default btn-md">Sign In</button>
-		</div>
+		
+
+ 
+  <input type="checkbox" id="menu" name="menu" class="menu-checkbox">
+  <div class="menu">
+    <label class="menu-toggle" for="menu"></label>
+    <ul>
+      <li><h2  align="center">INSPAZE</h2></li>
+
+      <li>
+        <a href="#"><h5>Home</h5></a>
+      </li>
+      <li>
+        <a href="#"><h5>Interior Ideas</h5></a>
+      </li>
+      <li>
+        <a href="#"><h5>Finding products</h5></a>
+      </li>
+      <li>
+      	<a href="#"><h5>Contact Us</h5></a>
+      </li>
+      <hr>
+      <li><a href="#"><h5>Sign In</h5></a></li>
+      <li><a href="#"><h5>Sign Up</h5></a></li>
+    </ul>
+
+</div><!-- #wrapper -->
+
+
 		<%= yield %>
 
 	</body>
 </html>
+
+
+

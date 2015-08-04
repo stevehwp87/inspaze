@@ -24,6 +24,12 @@ $(function() {
     // });
 });
 </script>
+<style> 
+p{
+ display: inline;
+ padding-right: 20px;
+	}
+	</style>
 
 
 </head>
@@ -53,6 +59,17 @@ $(function() {
 						</div>
 					</div>
 
+						<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :last_name %>
+						</div>
+						<div class="col-md-8">
+							<%= f.date_field :last_name, :class => "form-control" %>
+						</div>
+					</div>
+
+					
+
 					<div class="form-group">
 						<div class="col-md-4">
 							<%= f.label :date_of_birth %>
@@ -68,10 +85,10 @@ $(function() {
 						  <%= f.label :gender %>
 						</div>
 						<div class="col-md-8">
-							<%= radio_button_tag(:gender, "male") %>
-							<%= label_tag(:gender, "Male") %>
-							<%= radio_button_tag(:gender, "female") %>
-							<%= label_tag(:gender, "Female") %>
+					
+							<p><input type="radio" id="user_gender_male" name="user[gender]" value="male" checked="checked" />Male</p>
+						    <p><input type="radio" id="user_gender_female" name="user[gender]" value="female" />Female</p>
+					
 						</div>
 					</div>
 

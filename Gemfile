@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.2'
 gem 'bootstrap-sass', '3.2.0.0'
 gem 'font-awesome-sass'
+gem 'devise'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
