@@ -1,0 +1,114 @@
+
+<div class="container">
+		
+	  <div class="col-md-7 col-md-offset-1">
+
+				<%= form_for(@user) do |f| %>
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :first_name  %>
+						</div>
+						<div class="col-md-8">
+							<%= f.text_field :first_name, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :last_name %>
+						</div>
+						<div class="col-md-8">
+							<%= f.text_field :last_name, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :date_of_birth %>
+						</div>
+						<div class="col-md-8">
+							<input type="text" name="birthdate" value="11/27/1987" /> <i class="fa fa-calendar"></i>
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<div class="col-md-4">
+						  <%= f.label :gender %>
+						</div>
+						<div class="col-md-8">
+							<p><input type="radio" id="user_gender_male" name="user[gender]" value="male" checked="checked" />Male</p>
+						    <p><input type="radio" id="user_gender_female" name="user[gender]" value="female" />Female</p>
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :state %>
+						</div>
+						<div class="col-md-8">
+							<select name="user[state]">
+							  <option value="Kuala Lumpur" selected="selected">Kuala Lumpur</option>
+							  <option value="Penang" >Penang</option>
+							  <option value="Putrajaya" >Putrajaya</option>
+							  <option value="Melaka">Melaka</option>
+							  <option value="Johor">Johor</option>
+							  <option value="Negeri Sembilan">Negeri Sembilan</option>
+							  <option value="Pahang">Pahang</option>
+							  <option value="Perak">Perak</option>
+							  <option value="Terengganu">Terengganu</option>
+							  <option value="Kedah">Kedah</option>
+							  <option value="Kelantan">Kelantan</option>
+							  <option value="Perlis">Perlis</option>
+							  <option value="Sabah">Sabah</option>
+							  <option value="Sarawak">Sarawak</option>
+							  <option value="Labuan">Labuan</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :country %>
+						</div>
+						<div class="col-md-8">
+							<%= f.text_field :country, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :phone_no %>
+						</div>
+						<div class="col-md-8">
+							<%= f.text_field :phone_no, :class => "form-control" %>
+						</div>
+					</div>
+
+					
+
+					<div class="form-group">
+						<div class="col-md-8 col-md-offset-4">
+							<%= f.submit "Save", class: "btn btn-primary" %>
+						</div>
+					</div>
+					<% end %>
+					
+	  </div>
+  </div>
+
+
+ <script type="text/javascript">
+$(function() {
+    $('input[name="birthdate"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true
+    });
+    // function(start, end, label) {
+    //     var years = moment().diff(start, 'years');
+    //     alert("You are " + years + " years old.");
+    // });
+});
+</script>

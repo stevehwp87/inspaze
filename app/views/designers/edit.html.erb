@@ -1,0 +1,202 @@
+
+ 
+<div class="container">
+		
+	  <div class="col-md-7 col-md-offset-1">
+
+				<%= form_for(@designer) do |f| %>
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :first_name  %>
+						</div>
+						<div class="col-md-8">
+							<%= f.text_field :first_name, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :last_name %>
+						</div>
+						<div class="col-md-8">
+							<%= f.text_field :last_name, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :date_of_birth %>
+						</div>
+						<div class="col-md-8">
+							<input type="text" name="birthdate" value="11/27/1987" /> <i class="fa fa-calendar"></i>
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<div class="col-md-4">
+						  <%= f.label :gender %>
+						</div>
+						<div class="col-md-8">
+							<p><input type="radio" id="user_gender_male" name="user[gender]" value="male" checked="checked" />Male</p>
+						    <p><input type="radio" id="user_gender_female" name="user[gender]" value="female" />Female</p>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :phone_no %>
+						</div>
+						<div class="col-md-8">
+							<%= f.text_field :phone_no, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :company_name %>
+						</div>
+						<div class="col-md-8">
+							<%= f.text_field :company_name, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :address %>
+						</div>
+						<div class="col-md-8">
+							<%= f.text_area :address, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :country %>
+						</div>
+						<div class="col-md-8">
+							<%= f.text_field :country, :class => "form-control" %>
+						</div>
+					</div>
+
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :years_in_business %>
+						</div>
+						<div class="col-md-8">
+							<select name="user[years_in_business]">
+							  <option value="1" selected="selected">1</option>
+							  <option value="2">2</option>
+							  <option value="3">3</option>
+							  <option value="4">4</option>
+							  <option value="5">5</option>
+							  <option value="6">6</option>
+							  <option value="7">7</option>
+							  <option value="8">8</option>
+							  <option value="9">9</option>
+							  <option value="10">10</option>
+							  <option value="11">11</option>
+							  <option value="12">12</option>
+							  <option value="13">13</option>
+							  <option value="14">14</option>
+							  <option value="15">15</option>
+							  <option value="16">16</option>
+							  <option value="17">17</option>
+							  <option value="18">18</option>
+							  <option value="19">19</option>
+							  <option value="20">20</option>
+							  <option value="20+">20+</option>
+							</select>
+						</div>
+					</div>
+
+				
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :profession %>
+						</div>
+						<div class="col-md-8">
+							<%= f.text_field :profession, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :position %>
+						</div>
+						<div class="col-md-8">
+							<%= f.text_field :position, :class => "form-control" %>
+						</div>
+					</div>
+					
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :display_name %>
+						</div>
+						<div class="col-md-8">
+							<%= f.text_field :display_name, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :display_email %>
+						</div>
+						<div class="col-md-8">
+							<%= f.text_field :display_email, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :display_contact %>
+						</div>
+						<div class="col-md-8">
+							<%= f.text_field :display_contact, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :website %>
+						</div>
+						<div class="col-md-8">
+							<%= f.text_field :website, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-4">
+							<%= f.label :business_description %>
+						</div>
+						<div class="col-md-8">
+							<%= f.text_area :business_description, :class => "form-control" %>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-8 col-md-offset-4">
+							<%= f.submit "Save", class: "btn btn-primary" %>
+						</div>
+					</div>
+					<% end %>
+					
+	  </div>
+  </div>
+
+
+ <script type="text/javascript">
+$(function() {
+    $('input[name="birthdate"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true
+    });
+    // function(start, end, label) {
+    //     var years = moment().diff(start, 'years');
+    //     alert("You are " + years + " years old.");
+    // });
+});
+</script>

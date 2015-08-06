@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
-  get 'designers/new'
 
-  get 'users/new'
+
+  
+  devise_for :designers
+  devise_for :users
+  resources :users, :only => [:show, :edit, :update]
+  resources :designers, :only => [:show, :edit, :update]
 
   root             'static_pages#home'
   get 'users_type'    => 'static_pages#users_type'
-  resources :users
-  resources :designers
+  get 'contact'       => 'static_pages#contact'
+  get 'designs'       => 'static_pages#designs'
+  get 'products'      => 'static_pages#products'
+  
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
