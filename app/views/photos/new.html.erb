@@ -1,0 +1,17 @@
+
+<div class="container">
+<%= form_for [@album, @photo], :html => {:multipart => true}  do |f| %>
+
+  <h3 style="text-align:center"> New Photo</h3>
+
+  <p><%= f.text_field :name, placeholder: "Name",class: "form-control"%></p>
+
+  <p><%= f.text_field :tag_list, placeholder: "Tags(seperate by comma)",class: "form-control" %></p>
+
+  <p><%= f.file_field :image, class: "form-control" %></p>
+
+
+    <%= submit_tag "Create", class: "btn btn-primary btn-sm"%> 
+
+<% end %>
+</div>

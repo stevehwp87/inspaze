@@ -15,10 +15,18 @@ before_action :authenticate_designer!
 		@designer = Designer.find(params[:id])
 		@designer = current_designer
 		if @designer.update_attributes(designer_params)
-		render 'show'
+		render 'profile'
 		else
 		render 'edit'
 		end
+	end
+
+	def profile
+	  @designer = Designer.find(params[:id])
+	end
+
+	def gallery
+	  @designer = Designer.find(params[:id])
 	end
 
 	private

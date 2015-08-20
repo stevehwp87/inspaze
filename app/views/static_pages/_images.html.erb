@@ -1,0 +1,16 @@
+	    
+<% @photos.each do |photo| %>
+<div id="links">
+	    <div class="col-xs-6 col-md-3"  style="padding:1vmin">
+	    
+		    <div class="gallery-image">
+		      <%= link_to(image_tag(photo.image_url(:thumb)),image_path(photo.image_url), :"title" => photo.name, :"data-description" => photo.name, :class => "img-responsive" ) %>
+		    </div>
+		    <div class="text-center gallery-caption">
+		      <button type="button" class="btn btn-default " >Edit</button>
+		  	  <button type="button" class="btn btn-default " id="myGalleryBtn">Designer</button>
+	  	  </div>
+	  	  </div>
+		  </div>
+    
+<% end %>

@@ -1,0 +1,5 @@
+$("#myAlbumModal").modal('hide');
+$(".album_title").val('');
+
+$("#container_albums").append('<%= j render @album %>');
+$("#album_<%= @album.id %>").hide().fadeIn(1000);

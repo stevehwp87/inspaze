@@ -1,0 +1,6 @@
+$("#edit_albumModal_<%= @album.id %>").modal('hide');
+
+$("#album_<%= @album.id %>").fadeOut(1000,function(){
+	$(this).remove();
+	$("#container_albums").append('<%= j render @album %>');
+});

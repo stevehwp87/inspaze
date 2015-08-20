@@ -7,7 +7,10 @@ gem 'bootstrap-sass', '3.2.0.0'
 gem 'social-share-button', '~> 0.1.6'
 gem 'font-awesome-sass'
 gem 'devise'
-
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+gem 'acts-as-taggable-on', '~> 3.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -21,6 +24,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

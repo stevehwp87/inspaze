@@ -1,17 +1,34 @@
 Rails.application.routes.draw do
 
-
-  
-  devise_for :designers
+  devise_for :designers 
   devise_for :users
-  resources :users, :only => [:show, :edit, :update]
-  resources :designers, :only => [:show, :edit, :update]
+  resources :users, :only => [:show, :edit, :update] 
+
+  resources :designers, :only => [:show, :edit, :update] 
+ 
+
+resources :albums do
+  resources :photos, only: [:new, :create, :index, :show]
+end
+
+resources :photos, only: [:edit, :update, :destroy]
+
+
+resources :designers do
+  member do
+    get 'profile'
+    get 'gallery'
+  end
+end
 
   root             'static_pages#home'
   get 'users_type'    => 'static_pages#users_type'
   get 'contact'       => 'static_pages#contact'
   get 'designs'       => 'static_pages#designs'
   get 'products'      => 'static_pages#products'
+  get 'banana'        => 'static_pages#index'
+  get '/designer_profile/:id' => 'designers#profile'
+
   
 
 

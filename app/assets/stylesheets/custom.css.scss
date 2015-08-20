@@ -12,14 +12,14 @@
 }
 
 .btn-default{
-	margin-right: 5px;
+  margin-right: 5px;
 }
 
 .logo-img{
-	position: fixed;
+  position: fixed;
     right: 5vmin;
     top: 3vmin;
-	z-index:2;
+  z-index:2;
   width: 46vmin;
   background-color: white;
   opacity: 0.6;
@@ -51,14 +51,14 @@
 }
 
 .welcome-background btn {
-	margin-top: 5px;
-	margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .welcome-background{
   width: 50vmin;
   height: 30vmin;
-	border-style: solid;
+  border-style: solid;
   border-width: 5px; 
   background-color: #fff;
   opacity: 0.6;
@@ -98,7 +98,7 @@ label:focus {
   position: absolute;
   top: 0;
   left: 0;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.8);
   width: 240px;
   height: 100%;
   transform: translate3d(-240px, 0, 0);
@@ -186,3 +186,10 @@ p {
   font-size: 26px;
 }
 
+.modal-backdrop.in{
+  z-index: 1;
+}
+
+.modal fade in{
+  display: block;
+}

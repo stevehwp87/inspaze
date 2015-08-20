@@ -1,2 +1,22 @@
-Products
 
+
+<div class="container">
+
+<hr>	
+<h3 class="text-center">Products</h3>
+<hr>
+
+<%= image_tag('room1.jpg', size: "200x200") %>
+
+
+
+ <% @photos.each do |photo| %> 
+   <%= image_tag photo.image_url %>
+   <%= image_tag(photo.image_url(:thumb)) %>
+ <% end %>
+
+ <% @photos.each do |photo| %> 
+    <%= link_to(image_tag(photo.image_url(:thumb)),image_path(photo.image_url)) %>
+ <% end %>
+
+</div>

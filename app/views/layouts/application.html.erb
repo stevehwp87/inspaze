@@ -4,16 +4,17 @@
   <title><%= full_title(yield(:title)) %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<!-- Include Required Prerequisites -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
 
   <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.indigo-pink.min.css">
-	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link href="bootstrap.min.css" rel="stylesheet">
+  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="<%= asset_url 'font-awesome/css/font-awesome.min.css' %>">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -25,13 +26,8 @@
 
 
  
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-
 
 <style>
-
 .social-btn {
 position: fixed;
 left: 5vmin;
@@ -40,15 +36,12 @@ left: 5vmin;
 
 </head>
 
-	<body>
-      <div class="notice-alert">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      </div>
+  <body>
+      
   
    
-		  <div class="logo-img">
-		  <img src="../../assets/logo.png" class="img-responsive">
+      <div class="logo-img">
+      <img src="../../../assets/logo.png" class="img-responsive">
       </div>
       
 
@@ -87,7 +80,7 @@ left: 5vmin;
         </ul>
       </li>
 
-      <hr style="border-width: 3px; margin: 2vmin; border-color: black;">
+      <hr style="margin: 2vmin">
 
       <% if user_signed_in? %>
 
@@ -98,7 +91,7 @@ left: 5vmin;
       <% elsif designer_signed_in? %>
 
         <li><%= link_to "Profile", designer_path(current_designer) %></li>
-        <li><a href="#">My Project Gallery</a></li>
+        <li><%= link_to "Project Gallery", albums_path(current_designer) %></li>
         <li><%= link_to "Sign Out", destroy_designer_session_path, :method => :delete %><li>
 
       <% else %>
@@ -114,8 +107,9 @@ left: 5vmin;
       <% end %>
       
       </ul>
-      <hr style="border-width: 3px; margin: 2vmin; border-color: black;">
-
+      
+      <hr style="margin: 2vmin">
+      
       <div class="social-btn">
      
        Share <i class="fa fa-share-alt"></i>
@@ -123,6 +117,8 @@ left: 5vmin;
       </div>
    
   </div>
+
+
 
 
   
@@ -133,30 +129,37 @@ left: 5vmin;
     
       <!-- Modal content-->
       <div class="modal-content">
+
         <div class="modal-header" style="padding:15px 20px;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h3 style="text-align:center"> Welcome to INSPAZE</h3>
           <h5 style="text-align:center">Which describe you better</h5>
         </div>
+
         <div class="modal-body" style="padding:40px 50px;">
+
           <div>
             Owner <%= link_to "Sign up", new_user_registration_path %>
             I'm looking ideas to design
           </div>
+
           <div>
             Designer <%= link_to "Sign up", new_designer_registration_path %>
             I do great design
           </div>
+
         </div>
+
       </div>
     </div>
-  </div> 
+  </div>
+
   
 
     
 
 
-		<%= yield %>
+    <%= yield %>
 <script>
 $(document).ready(function(){
     $("#myBtn").click(function(){
@@ -165,8 +168,6 @@ $(document).ready(function(){
 });
 </script>
 
-	</body>
+  </body>
 </html>
-
-
 

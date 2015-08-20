@@ -1,1 +1,123 @@
-DEsigns
+
+<head>
+
+	<link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+<link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
+
+
+
+
+
+<style type="text/css">
+	
+	.blueimp-gallery > .description {
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  color: #fff;
+  display: none;
+}
+.blueimp-gallery-controls > .description {
+  display: block;
+}
+
+.gallery-image img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35vmin;
+  height: 35vmin;
+  }
+
+
+
+
+</style>
+</head>
+<body>
+<div class="container">
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <p class="description"></p>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="links">
+
+<% @photos.each do |photo| %>
+
+	    <div class="col-xs-6 col-md-3"  style="padding:1vmin">
+		    <div class="gallery-image">
+		      <%= link_to(image_tag(photo.image_url(:thumb)),image_path(photo.image_url), :"title" => photo.name, :"description" => photo.name, :"data-gallery" => "" ,:class => "img-responsive" ) %>
+		    </div>
+		    <div class="text-center" style="padding-top: 2vmin; padding-bottom: 3vmin">
+		    	<%= link_to 'Designer', profile_designer_path(photo.album.designer_id) %>
+		  	  <%= link_to 'Designer', designer_path(photo.album.designer_id) %>
+		    </div>
+		  </div>
+
+
+<% end %>
+</div>
+
+
+
+<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="js/bootstrap-image-gallery.min.js"></script>
+
+
+
+
+
+
+
+	<script>
+		blueimp.Gallery(
+	    document.getElementById('links'),
+	    {
+	        onslide: function (index, slide) {
+	            var text = this.list[index].getAttribute('data-description'),
+	                node = this.container.find('.description');
+	            node.empty();
+	            if (text) {
+	                node[0].appendChild(document.createTextNode(text));
+	            }
+	        }
+	    }
+	);
+	</script>
+
+
+
+
+
+</body>
