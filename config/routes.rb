@@ -13,6 +13,7 @@ end
 
 resources :photos, only: [:edit, :update, :destroy]
 
+resources :contacts, only: [:new, :create, :index]
 
 resources :designers do
   member do

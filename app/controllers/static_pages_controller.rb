@@ -19,4 +19,6 @@ class StaticPagesController < ApplicationController
   	@photo = Photo.find(params[:id])
   end
 
+
+
 end
