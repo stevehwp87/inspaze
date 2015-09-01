@@ -69,7 +69,7 @@
     .swiper-button-prev{
       left: 5vmin;
     }
-
+/*
     h3{
       font-size: 7vmin;
       line-height: 7vh;
@@ -78,8 +78,39 @@
     h4{
       font-size: 5vmin;
       padding-top: 2vmin;
+    }*/
+
+
+    .swiper-pagination-bullet-active{
+      background: #fff
     }
 
+    .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+    background-image: url("assets/ic_keyboard_arrow_left_black_48px.svg");
+    left: 5vmin;
+    right: auto;
+    background-size: 50px;
+    width: 10vmin;
+    height: 10vmin;
+    background-color: rgba(245, 245, 245, 0.7);
+    border-radius: 100%;
+    }
+
+    .swiper-button-next, .swiper-container-rtl .swiper-button-prev{
+      background-image: url("assets/ic_keyboard_arrow_right_black_48px.svg");
+    right: 5vmin;
+    left: auto;
+    background-size: 50px;
+    width: 10vmin;
+    height: 10vmin;
+    background-color: rgba(245, 245, 245, 0.7);
+    border-radius: 100%;
+    }
+
+    .swiper-pagination-bullet {
+    width: 2vmin;
+    height: 2vmin;
+    }
     </style>
 </head>
 <body>
@@ -155,7 +186,7 @@
         loop: true,
         keyboardControl: true,
         mousewheelControl: true,
-        autoplay: 2500,
+        autoplay: 4500,
         autoplayDisableOnInteraction: false
     });
 
@@ -163,3 +194,4 @@
     </script>
 </body>
 </html>
+

@@ -1,4 +1,16 @@
 
+ <head>
+ 
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
+</head>
 <div class="container">
 		
 	  <div class="col-md-7 col-md-offset-1">
@@ -28,7 +40,7 @@
 							<%= f.label :date_of_birth %>
 						</div>
 						<div class="col-md-8">
-							<input type="text" name="user[date_of_birth]" value="11/27/1987" /> <i class="fa fa-calendar"></i>
+							<input type="text" name="user[date_of_birth]" value="11/27/1987" id="datepicker"/> <i class="fa fa-calendar"></i>
 						</div>
 					</div>
 
@@ -67,7 +79,7 @@
 							  <option value="Labuan">Labuan</option>
 							</select>
 						</div>
-					</div>
+					</div><br>
 
 					<div class="form-group">
 						<div class="col-md-4">
@@ -100,15 +112,3 @@
   </div>
 
 
- <script type="text/javascript">
-$(function() {
-    $('input[name="birthdate"]').daterangepicker({
-        singleDatePicker: true,
-        showDropdowns: true
-    });
-    // function(start, end, label) {
-    //     var years = moment().diff(start, 'years');
-    //     alert("You are " + years + " years old.");
-    // });
-});
-</script>

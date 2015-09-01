@@ -1,9 +1,59 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @photo.name %>
-</p>
 
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+<head>
+	<style type="text/css">
+	.image{
+		max-width: 75vmin;
+		max-height: 75vmin;
+		margin-left: auto;
+	  margin-right: auto;
+	  display: block;
+	}
+
+    
+  .photo-name p{
+  	font-size: 4vmin;
+  }
+
+  .photo-action {
+  	margin-left: auto;
+	  margin-right: auto;
+	  display: table;
+	  padding: 2vmin;
+   
+  }
+
+
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<p id="notice"><%= notice %></p>
+
+		<div class="photo-name">
+		<%=image_tag(@photo.image_url, class: "image") %>
+
+
+		  <div class="photo-action ">
+		  <%= link_to 'Gallery', designs_path,:type => "button" ,:class => "btn btn-default",:"title" => "Gallery" %>
+        <%= link_to 'Designer', profile_designer_path(@photo.album.designer_id),:type => "button" ,:class => "btn btn-default",:"title" => "Designer Details" %>
+				<button title="Favourite" type="button" class="btn btn-default"><i class="fa fa-heart-o"></i></button>
+				<button title="Share" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-share-alt"></i></button>
+				</button>
+				<ul class="dropdown-menu">
+				  <li class="text-center"><%= social_share_button_tag(@photo.name, :popup => "true") %></li>
+				</ul>
+			</div>
+
+			<p class="text-center">
+			  <strong>Photo Name:</strong>
+			  <%= @photo.name %>
+			</p>
+
+
+		</div>
+
+	</div>
+</body>
+

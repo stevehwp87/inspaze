@@ -1,157 +1,94 @@
 <div class="container">
-		
-	  <div class="col-md-7 col-md-offset-1">
 
-			<%= form_for(@designer) do |f| %>
+	<div class="col-md-12 col-md-offset-0">
+		<%= link_to "Edit Profile", edit_designer_path , :class => "btn btn-default pull-right"%>
+		<%= link_to "Account Setting", edit_designer_registration_path , :class => "btn btn-default pull-right"%>	
+	</div>
 
-					<div class="form-group">
-						<div class="col-md-4">
-							<%= f.label :first_name  %>
-						</div>
-						<div class="col-md-8">
-							<%= @designer.first_name %>
-						</div>
-					</div>
+	<%= form_for(@designer) do |f| %>
+		<div class="col-md-6 col-md-offset-0">
+		  <h3>Personal Information</h3>
+			<div class="form-group">
+			  <div class="col-md-4"><%= f.label :first_name  %></div>
+				<div class="col-md-8"><%= @designer.first_name %></div>
+			</div>
 
-					<div class="form-group">
-						<div class="col-md-4">
-							<%= f.label :last_name %>
-						</div>
-						<div class="col-md-8">
-							<%= @designer.last_name %>
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-4"><%= f.label :last_name %></div>
+				<div class="col-md-8"><%= @designer.last_name %></div>
+			</div>
 
-					<div class="form-group">
-						<div class="col-md-4">
-							<%= f.label :date_of_birth %>
-						</div>
-						<div class="col-md-8">
-							<%= @designer.date_of_birth %>
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-4"><%= f.label :date_of_birth %></div>
+				<div class="col-md-8"><%= @designer.date_of_birth %></div>
+			</div>
 
 
-					<div class="form-group">
-						<div class="col-md-4">
-						  <%= f.label :gender %>
-						</div>
-						<div class="col-md-8">
-							<%= @designer.gender %>
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-4"><%= f.label :gender %></div>
+				<div class="col-md-8"><%= @designer.gender %></div>
+			</div>
 
-					<div class="form-group">
-						<div class="col-md-4">
-							<%= f.label :phone_no %>
-						</div>
-						<div class="col-md-8">
-							<%= @designer.phone_no %>
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-4"><%= f.label :phone_no %></div>
+				<div class="col-md-8"><%= @designer.phone_no %></div>
+			</div>
 
-					<div class="form-group">
-						<div class="col-md-4">
-							<%= f.label :company_name %>
-						</div>
-						<div class="col-md-8">
-							<%= @designer.company_name %>
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-4"><%= f.label :address %></div>
+				<div class="col-md-8"><%= @designer.address %></div>
+			</div>
 
-					<div class="form-group">
-						<div class="col-md-4">
-							<%= f.label :address %>
-						</div>
-						<div class="col-md-8">
-							<%= @designer.address %>
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-4"><%= f.label :country %></div>
+				<div class="col-md-8"><%= @designer.country %></div>
+			</div>
 
-						<div class="form-group">
-						<div class="col-md-4">
-							<%= f.label :country %>
-						</div>
-						<div class="col-md-8">
-							<%= @designer.country %>
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-4"><%= f.label :years_in_business %></div>
+				<div class="col-md-8"><%= @designer.years_in_business %></div>
+			</div>
 
+			<div class="form-group">
+				<div class="col-md-4"><%= f.label :position %></div>
+				<div class="col-md-8"><%= @designer.position %></div>
+			</div>
 
-					<div class="form-group">
-						<div class="col-md-4">
-							<%= f.label :years_in_business %>
-						</div>
-						<div class="col-md-8">
-							<%= @designer.years_in_business %>
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-4"><%= f.label :profession %></div>
+				<div class="col-md-8"><%= @designer.profession %></div>
+			</div>
+		</div>
 
-				
-					<div class="form-group">
-						<div class="col-md-4">
-							<%= f.label :profession %>
-						</div>
-						<div class="col-md-8">
-							<%= @designer.profession %>
-						</div>
-					</div>
+		<div class="col-md-6 col-md-offset-0">
+		<h3>Public Information <small>(will be display on your public profile)</small></h3>
 
-					<div class="form-group">
-						<div class="col-md-4">
-							<%= f.label :position %>
-						</div>
-						<div class="col-md-8">
-							<%= @designer.position %>
-						</div>
-					</div>
-					
+			<div class="form-group">
+				<div class="col-md-4"><%= f.label :display_name %></div>
+				<div class="col-md-8"><%= @designer.display_name %></div>
+			</div>
 
-					<div class="form-group">
-						<div class="col-md-4">
-							<%= f.label :display_name %>
-						</div>
-						<div class="col-md-8">
-							<%= @designer.display_name %>
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-4"><%= f.label :display_email %></div>
+				<div class="col-md-8"><%= @designer.display_email %></div>
+			</div>
 
-					<div class="form-group">
-						<div class="col-md-4">
-							<%= f.label :display_email %>
-						</div>
-						<div class="col-md-8">
-							<%= @designer.display_email %>
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-4"><%= f.label :display_contact %></div>
+				<div class="col-md-8"><%= @designer.display_contact %></div>
+			</div>
 
-					<div class="form-group">
-						<div class="col-md-4">
-							<%= f.label :display_contact %>
-						</div>
-						<div class="col-md-8">
-							<%= @designer.display_contact %>
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-4"><%= f.label :company_name %></div>
+				<div class="col-md-8"><%= @designer.company_name %></div>
+			</div>
 
-					<div class="form-group">
-						<div class="col-md-4">
-							<%= f.label :website %>
-						</div>
-						<div class="col-md-8">
-							<%= @designer.website %>
-						</div>
-					</div>
+			<div class="form-group">
+				<div class="col-md-4"><%= f.label :website %></div>
+				<div class="col-md-8"><%= @designer.website %></div>
+			</div>
 
-					<div class="form-group">
-						<div class="col-md-4">
-							<%= f.label :business_description %>
-						</div>
-						<div class="col-md-8">
-							<%= @designer.business_description %>
-						</div>
-					</div>
+		</div>
+	<% end %>
 
-			<% end %>
-	  </div>
-  </div>
+</div>

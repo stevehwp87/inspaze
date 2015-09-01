@@ -6,6 +6,6 @@ class AddFirstNameToUsers < ActiveRecord::Migration
     add_column :users, :gender, :string
     add_column :users, :state, :string
     add_column :users, :country, :string
-    add_column :users, :phone_no, :integer
+    add_column :users, :phone_no, :string
   end
 end

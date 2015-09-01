@@ -1,3 +1,94 @@
-Designer profile and gallery
+<head>
+<style type="text/css">
+.profile_photo{
+  height:13vmin;
+}
 
-<%= @designer.email %>
+.profile_photo img{
+  width: 15vmin;
+    height: 15vmin;
+    margin-left: 5vmin;
+    border-radius: 100%;
+    margin-top: -2vmin;
+}
+
+.profile_detail{
+  margin-left: 30vmin;
+}
+
+.profile_detail h3{
+  font-size: 5vmin;
+}
+.profile_detail button{
+  width: 30vmin;
+  font-size: 3vmin;
+}
+</style>
+</head>
+
+
+<body>
+<div class="container">
+  <hr>
+  <div class="profile_photo">
+      <div>
+      <img src="http://silentmouth.com/wp-content/uploads/2010/11/facebook-generic-profile-pic-i-200x188.jpg" class="pull-left"  >
+    </div>
+    <div class="profile_detail">
+      <h3><%= @designer.email %></h3>
+      <button type="button" class="btn btn-default btn-sm pull-left" id="myAlbumBtn" >
+      Designer's Profile
+      </button>
+    </div>  
+  </div>
+  <hr>
+<% @albums.each do |album| %>
+<div class="col-md-2" id="album_<%= album.id %>" style="padding:1vmin; margin-bottom: 5vmin">
+  <div class="album-title text-center">
+    <p><%= album.title %></p>
+  </div>
+</div>
+
+<div class="modal fade" id="myAlbumModal" role="dialog" >
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <div class="modal-header" style="padding:15px 20px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 style="text-align:center"> Designer's Profile</h3>
+        </div>
+
+        <div class="modal-body">
+        <p>Name</p>
+        <p>ghjghjghj</p>
+        <p>jkjhjk</p>
+        
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div> 
+
+
+<% end %>
+
+
+</div>
+
+
+<script>
+$(document).ready(function(){
+    $("#myAlbumBtn").click(function(){
+        $("#myAlbumModal").modal();
+    });
+});
+</script>
+
+</body>

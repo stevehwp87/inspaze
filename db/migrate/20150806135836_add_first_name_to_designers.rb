@@ -4,7 +4,7 @@ class AddFirstNameToDesigners < ActiveRecord::Migration
   add_column :designers, :last_name, :string
   add_column :designers, :date_of_birth, :string
   add_column :designers, :gender, :string
-  add_column :designers, :phone_no, :integer
+  add_column :designers, :phone_no, :string
   add_column :designers, :company_name, :string
   add_column :designers, :address, :string
   add_column :designers, :country, :string

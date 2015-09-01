@@ -28,8 +28,9 @@ end
 
   def update
     @photo = Photo.find(params[:id])
+    @album = @photo.album
     if @photo.update_attributes(photo_params)
-      redirect_to album_photos_url, notice: "photo was successfully updated."
+      redirect_to album_photos_url(@album), notice: "photo was successfully updated."
     else
       render :index
     end
@@ -41,6 +42,10 @@ end
     @photo.destroy
     redirect_to album_photos_url(@album), notice: "photo was successfully destroyed."
 
+  end
+
+  def show
+    @photo = Photo.find(params[:id])
   end
 
     private

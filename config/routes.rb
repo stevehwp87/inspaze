@@ -11,6 +11,8 @@ resources :albums do
   resources :photos, only: [:new, :create, :index, :show]
 end
 
+
+
 resources :photos, only: [:edit, :update, :destroy]
 
 resources :contacts, only: [:new, :create, :index]
@@ -27,11 +29,6 @@ end
   get 'contact'       => 'static_pages#contact'
   get 'designs'       => 'static_pages#designs'
   get 'products'      => 'static_pages#products'
-  get 'banana'        => 'static_pages#index'
-  get '/designer_profile/:id' => 'designers#profile'
-
-  
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

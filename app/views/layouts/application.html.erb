@@ -32,6 +32,21 @@
 position: fixed;
 left: 5vmin;
   }
+
+.modal-content{
+  background-color: #FFF;
+}
+
+.user_type{
+  width: 85%;
+  padding: 5px 0 20px 0;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  background-color: #F7F7F7;
+}
+
+
 </style>
 
 </head>
@@ -132,21 +147,49 @@ left: 5vmin;
 
         <div class="modal-header" style="padding:15px 20px;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h3 style="text-align:center"> Welcome to INSPAZE</h3>
-          <h5 style="text-align:center">Which describe you better</h5>
+          <h2 style="text-align:center"> Welcome to INSPAZE</h2>
+          <h4 style="text-align:center">Which describe you better</h4>
         </div>
 
-        <div class="modal-body" style="padding:40px 50px;">
+        <div class="modal-body">
 
-          <div>
-            Owner <%= link_to "Sign up", new_user_registration_path %>
-            I'm looking ideas to design
-          </div>
+     
+            
+            <div class="user_type">
+              <div>
+                <h4 class="text-center">I need design ideas.</h4> 
+                <p class="text-center">I am looking for designer who can provide interior design ideas to me. </p>
+              </div>
+              <div class="text-center">
+                <%= link_to "Sign up", new_user_registration_path, :class => "btn btn-primary", :style => "width: 30vmin;"%>
+              </div>
+            </div>
 
-          <div>
-            Designer <%= link_to "Sign up", new_designer_registration_path %>
-            I do great design
-          </div>
+            <hr>
+
+            <div class="user_type">
+              <div>
+                <h4 class="text-center">I am interior designers</h4> 
+                <p class="text-center">I can provide excellent service and creative interior design ideas. </p>
+              </div>
+              <div class="text-center">
+                <%= link_to "Sign up", new_designer_registration_path, :class => "btn btn-success", :style => "width: 30vmin;"%>
+              </div>
+            </div>
+
+            <hr>
+           
+            <div class="user_type">
+              <div>
+                <h4 class="text-center">I provide interior products.</h4> 
+                <p class="text-center">I can provide good quality and service for interior products. </p>
+              </div>
+              <div class="text-center">
+                <%= link_to "Contact Us", new_contact_path, :class => "btn btn-danger", :style => "width: 30vmin;"%>
+              </div>
+            </div>
+            
+            <hr>
 
         </div>
 

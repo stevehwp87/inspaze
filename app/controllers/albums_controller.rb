@@ -6,8 +6,8 @@ class AlbumsController < ApplicationController
   # GET /albums.json
   def index
 
-    # @albums = current_designer.albums.all
-    @albums = Album.all
+    @albums = current_designer.albums
+    # @albums = Album.all
     @album = Album.new
   end
 

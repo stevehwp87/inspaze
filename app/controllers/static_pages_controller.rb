@@ -10,13 +10,14 @@ class StaticPagesController < ApplicationController
   end
 
   def designs
+
   	@photos = Photo.all
-  	
+    # @photo -Photo.find(params[:id])
+    @user = current_user
   end
 
   def products
-  	@photos = Photo.all
-  	@photo = Photo.find(params[:id])
+  
   end
 
 

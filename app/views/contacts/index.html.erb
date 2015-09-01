@@ -4,7 +4,7 @@
   <table class="table" style="table-layout: fixed">
     <thead>
       <tr>
-        <th style="width:30px;">ID</th>
+        <th style="width:50px;">ID</th>
         <th style="width:200px;">Name</th>
         <th style="width:200px;">Email</th>
         <th style="width:200px;">Subject</th>
@@ -15,10 +15,10 @@
     <tbody>
     <% @contacts.each do |contact| %>
       <tr>
-        <td ><%= contact.id %></td>
-        <td ><%= contact.name %></td>
-        <td ><%= contact.email %></td>
-        <td ><%= contact.subject %></td>
+        <td style="word-wrap: break-word"><%= contact.id %></td>
+        <td style="word-wrap: break-word"><%= contact.name %></td>
+        <td style="word-wrap: break-word"><%= contact.email %></td>
+        <td style="word-wrap: break-word"><%= contact.subject %></td>
         <td style="word-wrap: break-word"><%= contact.message %></td>
       </tr>
       <% end %>

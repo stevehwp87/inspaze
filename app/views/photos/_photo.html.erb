@@ -7,7 +7,11 @@
     </div>
     <div style="padding: 10px 0px">
     <div class="text-center">
+    <strong class="pull-left">Name: </strong>
       <%= photo.name %>
+      <br>
+      <strong class="pull-left">Tags: </strong>
+      <%= photo.tag_list %>
     </div>
   	<div class="text-center">
       <button type="button" class="btn btn-default btn-xs" id="edit_photoBtn_<%= photo.id %>" >Edit</button>
