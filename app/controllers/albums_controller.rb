@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :authenticate_designer!
+  before_action :authenticate_designer!, except: [:show]
   before_action :set_album, only: [:show, :edit, :update, :destroy]
 
   # GET /albums
@@ -14,8 +14,10 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
-    @photos = @album.photos.all
-    @photo = Photo.new
+    # @photos = @album.photos.all
+    # @photo = Photo.new
+    @album = Album.find(params[:id])
+    @photos = @album.photos
   end
 
   # GET /albums/new
@@ -33,18 +35,21 @@ class AlbumsController < ApplicationController
     # @designer = current_designer
     @album = current_designer.albums.new(album_params)
     # @album = Album.new(album_params)
-    respond_to do |format|
+    # respond_to do |format|
       if @album.save
-        format.html { redirect_to @album, notice: 'Album was successfully created.' }
-        format.json { render :show, status: :created, location: @album }
-        format.js
+        redirect_to album_photos_path(@album.id)
+        # format.html { redirect_to @album, notice: 'Album was successfully created.' }
+        # # format.html { redirect_to album_photos_path, notice: 'Album was successfully created.' }
+        # format.json { render :show, status: :created, location: @album }
+        # format.js
       else
-        format.html { render :new }
-        format.json { render json: @album.errors, status: :unprocessable_entity }
-        format.js
+        render :new
+        # format.html { render :new }
+        # format.json { render json: @album.errors, status: :unprocessable_entity }
+        # format.js
       end
     end
-  end
+  # end
 
   # PATCH/PUT /albums/1
   # PATCH/PUT /albums/1.json

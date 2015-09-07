@@ -12,8 +12,9 @@ gem 'mini_magick'
 gem 'fog'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'acts_as_votable', '~> 0.10.0'
-gem 'sunspot_rails'
-gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
+gem 'country_select'
+gem 'countries'
+gem 'rails_admin'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets

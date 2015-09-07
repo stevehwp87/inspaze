@@ -1,5 +1,5 @@
 class DesignersController < ApplicationController
-before_action :authenticate_designer!
+before_action :authenticate_designer! , except: [:profile, :gallery]
 
   def show
     @designer = Designer.find(params[:id]) 
@@ -29,7 +29,7 @@ before_action :authenticate_designer!
 	end
 
 	def gallery
-	  @designer = Designer.find(params[:id])
+	 
 	end
 
 	private

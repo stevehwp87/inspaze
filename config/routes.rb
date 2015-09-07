@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :designers 
-  devise_for :users
+  devise_for :admins
+  mount RailsAdmin::Engine => '/inspaze_admin871127', as: 'rails_admin'
+  devise_for :designers, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "registrations" }
   resources :users, :only => [:show, :edit, :update] 
 
   resources :designers, :only => [:show, :edit, :update] 

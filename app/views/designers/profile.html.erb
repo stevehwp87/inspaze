@@ -1,54 +1,64 @@
 <head>
-<style type="text/css">
+<style>
 .profile_photo{
-  height:13vmin;
+  height:5vmin;
 }
 
-.profile_photo img{
-  width: 15vmin;
-    height: 15vmin;
-    margin-left: 5vmin;
-    border-radius: 100%;
-    margin-top: -2vmin;
-}
 
 .profile_detail{
-  margin-left: 30vmin;
+  margin-left: 10vmin;
 }
 
-.profile_detail h3{
+/*.profile_detail h3{
   font-size: 5vmin;
-}
-.profile_detail button{
-  width: 30vmin;
-  font-size: 3vmin;
+}*/
+
+.social-share-button{
+  display:inline;
 }
 </style>
 </head>
 
-
-<body>
 <div class="container">
   <hr>
-  <div class="profile_photo">
-      <div>
-      <img src="http://silentmouth.com/wp-content/uploads/2010/11/facebook-generic-profile-pic-i-200x188.jpg" class="pull-left"  >
-    </div>
+  <!-- <div class="profile_photo"> -->
+      
     <div class="profile_detail">
-      <h3><%= @designer.email %></h3>
-      <button type="button" class="btn btn-default btn-sm pull-left" id="myAlbumBtn" >
-      Designer's Profile
+      <h3 ><%= @designer.display_name %></h3>
+     
+      <button type="button" class="btn btn-default btn-sm" id="myAlbumBtn" style="display:inline;">
+      Designer's Details
       </button>
+  
+    <div class="dropdown" style="display:inline;">
+      <button type="button" title="Share" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" >
+      Share Profile</button>
+        <ul class="dropdown-menu text-center">
+          <li class="text-center"><%= social_share_button_tag(@designer.display_name, :popup => "true" ) %></li>
+        </ul>
+    </div>
+
+       
+
+
     </div>  
-  </div>
+<!--   </div> -->
   <hr>
 <% @albums.each do |album| %>
-<div class="col-md-2" id="album_<%= album.id %>" style="padding:1vmin; margin-bottom: 5vmin">
+<div class="col-xs-6 col-sm-4 col-md-2" id="album_<%= album.id %>" style="padding:1vmin; margin-bottom: 5vmin">
   <div class="album-title text-center">
-    <p><%= album.title %></p>
+    <div class="text-center">
+
+    <% if album.photos.exists? %>
+       <%= link_to(image_tag(album.photos.first.image_url(:thumb)),album_path(album.id), :"title" => album.title, :class => "img-responsive" ) %>
+    <% else %>
+
+    <% end %>
+
+  </div>
   </div>
 </div>
-
+<% end %>
 <div class="modal fade" id="myAlbumModal" role="dialog" >
     <div class="modal-dialog">
     
@@ -61,9 +71,15 @@
         </div>
 
         <div class="modal-body">
-        <p>Name</p>
-        <p>ghjghjghj</p>
-        <p>jkjhjk</p>
+          <div class="form-group">
+            <div class="col-md-3 col-md-offset-1"><strong>Name</strong></div>
+            <div class="col-md-8"><%= @designer.display_name %></div>
+          </div>
+    
+          <div class="form-group">
+            <div class="col-md-3 col-md-offset-1"><strong>Name</strong></div>
+            <div class="col-md-8"><%= @designer.display_name %></div>
+          </div>
         
         </div>
 
@@ -76,10 +92,6 @@
     </div>
   </div> 
 
-
-<% end %>
-
-
 </div>
 
 
@@ -91,4 +103,3 @@ $(document).ready(function(){
 });
 </script>
 
-</body>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-before_action :authenticate_user!
+before_action :authenticate_user! 
 
 
   def show
@@ -27,7 +27,7 @@ before_action :authenticate_user!
 
 	def user_params
 		params.require(:user).permit(:first_name, :last_name,
-		:date_of_birth, :gender,:state, :country, :phone_no)
+		:date_of_birth, :gender,:state, :country, :phone_no, :admin)
 	end
 
 end

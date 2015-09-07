@@ -50,7 +50,19 @@
 <div class="col-md-3" id="album_<%= album.id %>" style="padding:1vmin; margin-bottom: 5vmin">
 
 
-  <div class="text-center">
+  
+ 
+    <% if album.photos.exists? %>
+       <div class="text-center">
+       <%= link_to(image_tag(album.photos.first.image_url(:thumb)),album_photos_path(album.id), :"title" => album.title, :"description" => album.title, :"data-gallery" => "" ,:class => "img-responsive" ) %>
+       </div>
+       <div class="text-center">
+    <button type="button" class="btn btn-default btn-xs" id="edit_albumBtn_<%= album.id %>" >Edit</button>
+   <%= link_to 'Delete', album, method: :delete, class: "btn btn-default btn-xs "%>
+  </div>
+<% else %>
+
+<div class="text-center">
    <%= link_to album.title, album_photos_path(album.id), class: "btn album-cover"%>
   </div>
 
@@ -59,8 +71,7 @@
    <%= link_to 'Delete', album, method: :delete, class: "btn btn-default btn-xs "%>
   </div>
 
- 
-   
+<% end %>
 
 
 
