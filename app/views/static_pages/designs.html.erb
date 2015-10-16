@@ -1,8 +1,7 @@
 
 <head>
 
-	<link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
-<link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
+
 
 
 
@@ -25,9 +24,16 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 33vmin;
-  height: 33vmin;
+  width: 33vw;
+  height: 33vw;
   }
+
+@media screen and (min-width: 1000px) {
+  .gallery-image img {
+    width: 20vw;
+    height: 20vw;
+  }
+}
 
 
 .gallery-caption{
@@ -35,9 +41,15 @@
   top: -8vmin;
   background-color: rgba(255, 255, 255, 0.75);
   padding: 0 0px;
-  width: 33vmin;
+  width: 33vw;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media screen and (min-width: 1000px) {
+  .gallery-caption {
+    width: 20vw;
+  }
 }
 
 
@@ -108,25 +120,34 @@
 
   <div id="links">
 
+    <hr>
+      <h1 class="text-center">Gallery</h1>
+    <hr>
+
     <% @photos.each do |photo| %>
 
-	    <div class="col-xs-6 col-md-3"  style="padding:1vmin">
+	    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3"  style="padding:1vmin">
 		    <div class="gallery-image">
-		      <%= link_to(image_tag(photo.image_url(:thumb)),image_path(photo.image_url), :"title" => photo.name, :"description" => photo.name, :"data-gallery" => "" ,:class => "img-responsive" ) %>
+		      <%= link_to(image_tag(photo.image_url(:thumb)),image_path(photo.image_url), :"title" => photo.name, :"description" => photo.name, :"data-gallery" => "" ,:class => "img-responsive") %>
 		    </div>
 		    <div class="row text-center gallery-caption" style="padding-top: 1vmin; padding-bottom: 2vmin">
       
-            <%= link_to (image_tag('detail.png')), profile_designer_path(photo.album.designer_id),:"title" => "Designer Details" %>
+            <%= link_to (image_tag('detail.png')), profile_designer_path(photo.album.designer_id),:"title" => "Designer Details" ,:class => "designer-profile"%>
 
             <% if user_signed_in? %>
-            <img src="assets/favorite_red.png" title="Favourited" id="favorite_<%= photo.id %>"> 
+            
               <% if @user.voted_for? photo %>
-    
-                <img src="assets/favorite_red.png" title="Favourited" id="favorite_<%= photo.id %>"> 
-       
+                <%= link_to( "/unlike/"+ photo.id.to_s, remote: true) do %>
+                  <img src="assets/favorite_red.png" title="Favourited" id="favorite_red_<%= photo.id %>"> 
+                  <img src="assets/favorite.png" title="Favourited" id="favorite_<%= photo.id %>" style="display:none"> 
+                <%end%>
               <% else%>
-                <img src="assets/favorite.png" title="Favourite"> 
+                <%= link_to( "/like/"+ photo.id.to_s, remote: true) do %>
+                  <img src="assets/favorite.png" title="Favourite" id="favorite_<%= photo.id %>">
+                  <img src="assets/favorite_red.png" title="Favourited" id="favorite_red_<%= photo.id %>" style="display:none">
+                <%end%>
               <% end %>
+
             <% elsif designer_signed_in? %>
             <% else %>
               <img src="assets/favorite.png" title="Favourite" id="myfavoriteBtn_<%= photo.id %>"> 
@@ -175,39 +196,18 @@
         
         </div>
 		  </div>
-       <script>
+      <script>
         $(document).ready(function(){
-            $("#myfavoriteBtn_<%= photo.id %>").click(function(){
-                $("#myfavoriteModal_<%= photo.id %>").modal();
-            });
+          $("#myfavoriteBtn_<%= photo.id %>").click(function(){
+            $("#myfavoriteModal_<%= photo.id %>").modal();
+          });
         });
-       </script>
-       <script type="text/javascript">
-        // $(function(){
-        //   $('#favorite_<%= photo.id %>').click(function () {
-        //     alert("haha")
-        //   })
-        // ;})
-        $(document).ready(function() {
-    $('#favorite_<%= photo.id %>').click(function() {
-      $(this).hide();
-      $(".gallery-caption").prepend("<img src='assets/favorite.png'/>")
-    });
-});
       </script>
+      
     <% end %>
   </div>
+  <%= will_paginate @photos %>
 </div>
-
-
-
-
-
-
-
-
-
-
 
 	<script>
 		blueimp.Gallery(

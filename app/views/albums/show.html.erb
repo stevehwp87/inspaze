@@ -1,15 +1,21 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @album.title %>
-</p>
+<div class="container">	
 
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', albums_path %>
+	
 
+	<hr>
 
-<% @photos.each do |photo| %>
-<%= link_to(image_tag(photo.image_url(:thumb)),image_path(photo.image_url), :"title" => photo.name, :"description" => photo.name, :"data-gallery" => "" ,:class => "img-responsive" ) %>
+	<h3 class="text-center">
+	  <strong>Album Title:</strong>
+	  <%= @album.title %>
+	</h3>
+       
+  <hr>
 
-<% end %>
+	<% @photos.each do |photo| %>
+	<div class=" col-xs-6 col-md-3 album-image" style="padding:1vmin; margin-bottom: 5vmin">
+	<%= link_to(image_tag(photo.image_url(:thumb)),album_photo_path(photo.album.id, photo.id), :"title" => photo.name, :class => "img-responsive" ) %>
+</div>
+	<% end %>
+
+</div>

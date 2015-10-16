@@ -15,6 +15,9 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'country_select'
 gem 'countries'
 gem 'rails_admin'
+gem 'will_paginate', '~> 3.0.6'
+gem 'kaminari'
+gem 'mandrill-rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets

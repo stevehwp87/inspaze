@@ -1,22 +1,28 @@
 
 
-<div class="col-md-3" id="photo_<%= photo.id %>" style="padding:1vmin; margin-bottom: 5vmin">
+<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" id="photo_<%= photo.id %>" style="padding:1vmin; margin-bottom: 5vmin">
   <div>
     <div class="photo-image">
       <%= image_tag(photo.image_url(:thumb)) %>
     </div>
     <div style="padding: 10px 0px">
-    <div class="text-center">
-    <strong class="pull-left">Name: </strong>
-      <%= photo.name %>
-      <br>
-      <strong class="pull-left">Tags: </strong>
-      <%= photo.tag_list %>
-    </div>
-  	<div class="text-center">
-      <button type="button" class="btn btn-default btn-xs" id="edit_photoBtn_<%= photo.id %>" >Edit</button>
-  	  <%= link_to 'Delete', photo, method: :delete, class: "btn btn-default btn-xs "%>
-  	</div>
+      <div class="text-center">
+        <strong class="pull-left">Name: </strong>
+          <%= photo.name %>
+        <br>
+        <strong class="pull-left">Tags: </strong>
+          <%= photo.tag_list %>
+          <br>
+        <strong class="pull-left">Type: </strong>
+          <%= photo.area.type.name %>
+        <br>
+        <strong class="pull-left">Area: </strong>
+          <%= photo.area.name %>
+      </div>
+    	<div class="text-center">
+        <button type="button" class="btn btn-default btn-xs" id="edit_photoBtn_<%= photo.id %>" >Edit</button>
+    	  <%= link_to 'Delete', photo, method: :delete, class: "btn btn-default btn-xs "%>
+    	</div>
     </div>
   </div>
 

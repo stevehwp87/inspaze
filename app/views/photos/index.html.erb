@@ -43,6 +43,9 @@
           <p><%= f.text_field :name, placeholder: "Name",class: "form-control"%>
           </p>
           <p><%= f.text_field :tag_list, placeholder: "Tags(seperate by comma)",class: "form-control" %></p>
+        
+
+          <p><%= grouped_collection_select(:photo, :area_id, Type.all, :areas, :name, :id, :name) %></p>
           <p><%= f.file_field :image, class: "form-control" %></p>
         </div>
 

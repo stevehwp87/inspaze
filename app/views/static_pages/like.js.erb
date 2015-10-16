@@ -1,0 +1,5 @@
+var image_id_red = $("#favorite_red_" + <%= @photo.id.to_s%>) 
+var image_id = $("#favorite_" + <%= @photo.id.to_s%>) 
+image_id.hide()
+image_id_red.show()
+image_id_red.parent().attr("href", "/unlike/<%= @photo.id %>")

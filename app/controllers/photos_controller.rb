@@ -8,9 +8,9 @@ before_action :set_photo, only: [:show, :edit, :update, :destroy]
     @photo = @album.photos.new
   end
 
-def new
-@photo = Photo.New
-end
+  def new
+   @photo = Photo.New
+  end
 
   def create
     @album = Album.find(params[:album_id])
@@ -56,6 +56,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:name, :image, :tag_list, :album_id)
+      params.require(:photo).permit(:name, :image, :tag_list, :album_id, :area_id)
     end
 end

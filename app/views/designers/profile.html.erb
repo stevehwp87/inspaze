@@ -44,21 +44,15 @@
     </div>  
 <!--   </div> -->
   <hr>
-<% @albums.each do |album| %>
-<div class="col-xs-6 col-sm-4 col-md-2" id="album_<%= album.id %>" style="padding:1vmin; margin-bottom: 5vmin">
-  <div class="album-title text-center">
-    <div class="text-center">
 
-    <% if album.photos.exists? %>
-       <%= link_to(image_tag(album.photos.first.image_url(:thumb)),album_path(album.id), :"title" => album.title, :class => "img-responsive" ) %>
-    <% else %>
-
-    <% end %>
-
+  <div class="row" id="container_photos">
+    <div class="col-md-12">
+      <%= render 'profile_album' %>
+    </div>
   </div>
-  </div>
-</div>
-<% end %>
+ 
+    
+
 <div class="modal fade" id="myAlbumModal" role="dialog" >
     <div class="modal-dialog">
     

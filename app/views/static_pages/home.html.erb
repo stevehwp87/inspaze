@@ -99,6 +99,30 @@
     width: 2vmin;
     height: 2vmin;
     }
+
+    .carousel-caption{
+      position: absolute;
+      top: 25vh;
+    }
+    .carousel-caption h2{
+      font-size: 10vmin;
+      text-shadow: 2px 2px #484444;
+    }
+
+    .carousel-caption .btn{
+      font-size: 4vmin;
+      border-radius: 0;
+      background-color: transparent;
+      color: white;
+      font-weight: 900;
+      border-width: medium;
+      border-color: white;
+      text-shadow: 1px 1px #484444;
+      box-shadow: 1px 1px #484444;
+      margin-top: 3vmin;
+    }
+
+
     </style>
 
     <!-- Swiper -->
@@ -108,42 +132,82 @@
       <div class="swiper-wrapper">
 
         <div class="swiper-slide">
-          <div class="fill" style="background-image:url('assets/sofacorner.jpg');">
-            <div class="slide-caption">
-                <h3>Find all of your interior ideas from our professional interior designer</h3>
-                <h4>Learn More</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="fill" style="background-image:url('assets/room1.jpg');"></div>
+          <div class="fill" style="background-image:url('assets/page1.jpg');"></div>
           <div class="carousel-caption">
-            <h2>FIghting for your future</h2>
+            <h2>Get Interior Design Ideas From Our Professionals</h2>
+            <button type="button" class="btn btn-default btn-lg">Learn More</button>
           </div>
         </div>
 
         <div class="swiper-slide">
-            <div class="fill" style="background-image:url('assets/room2.jpg');"></div>
-            <div class="carousel-caption">
-              <h2>FIghting for your future</h2>
-            </div>
+          <div class="fill" style="background-image:url('assets/page2.jpg');"></div>
+          <div class="carousel-caption">
+            <h2>Get Interior Design Ideas From Our Professionals</h2>
+            <button type="button" class="btn btn-default btn-lg">Learn More</button>
+          </div>
         </div>
 
         <div class="swiper-slide">
-            <div class="fill" style="background-image:url('assets/room3.jpg');"></div>
-            <div class="carousel-caption">
-              <h2>Go go go!!!</h2>
-            </div>
+          <div class="fill" style="background-image:url('assets/page3.jpg');"></div>
+          <div class="carousel-caption">
+            <h2>Get Interior Design Ideas From Our Professionals</h2>
+            <button type="button" class="btn btn-default btn-lg">Learn More</button>
+          </div>
         </div>
       
        
-        <div class="swiper-slide">Slide 5</div>
-        <div class="swiper-slide">Slide 6</div>
-        <div class="swiper-slide">Slide 7</div>
-        <div class="swiper-slide">Slide 8</div>
-        <div class="swiper-slide">Slide 9</div>
-        <div class="swiper-slide">Slide 10</div>
+        <div class="swiper-slide">
+          <div class="fill" style="background-image:url('assets/page4.jpg');"></div>
+          <div class="carousel-caption">
+            <h2>Get Interior Design Ideas From Our Professionals</h2>
+            <button type="button" class="btn btn-default btn-lg">Learn More</button>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="fill" style="background-image:url('assets/page5.jpg');"></div>
+          <div class="carousel-caption">
+            <h2>Get Interior Design Ideas From Our Professionals</h2>
+            <button type="button" class="btn btn-default btn-lg">Learn More</button>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="fill" style="background-image:url('assets/page6.jpg');"></div>
+          <div class="carousel-caption">
+            <h2>Get Interior Design Ideas From Our Professionals</h2>
+            <button type="button" class="btn btn-default btn-lg">Learn More</button>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="fill" style="background-image:url('assets/page7.jpg');"></div>
+          <div class="carousel-caption">
+            <h2>Get Interior Design Ideas From Our Professionals</h2>
+            <button type="button" class="btn btn-default btn-lg">Learn More</button>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="fill" style="background-image:url('assets/page8.jpg');"></div>
+          <div class="carousel-caption">
+            <h2>Get Interior Design Ideas From Our Professionals</h2>
+            <button type="button" class="btn btn-default btn-lg">Learn More</button>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="fill" style="background-image:url('assets/page9.jpg');"></div>
+          <div class="carousel-caption">
+            <h2>Get Interior Design Ideas From Our Professionals</h2>
+            <button type="button" class="btn btn-default btn-lg">Learn More</button>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="fill" style="background-image:url('assets/page10.jpg');"></div>
+          <div class="carousel-caption">
+            <h2>Get Interior Design Ideas From Our Professionals</h2>
+            <button type="button" class="btn btn-default btn-lg">Learn More</button>
+          </div>
+        </div>
+        
+       
+       
       </div>
       <!-- Add Pagination -->
       <div class="swiper-pagination"></div>
@@ -165,11 +229,11 @@
         slidesPerView: 1,
         paginationClickable: true,
         spaceBetween: 30,
-        loop: true,
         keyboardControl: true,
         mousewheelControl: true,
         autoplay: 4500,
-        autoplayDisableOnInteraction: false
+        autoplayDisableOnInteraction: false,
+        loop: true,
     });
 
      

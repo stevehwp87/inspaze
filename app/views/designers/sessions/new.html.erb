@@ -1,26 +1,53 @@
-<h2>Log in</h2>
+<style type="text/css">
+  body{
+    background-image: url("../assets/designersignup.jpg");
+    background-repeat: repeat-y;
+    background-size: 100% 100%;
+  }
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+.designer-log-in{
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    height: 300px;
+    background-color: rgba(255,255,255,0.8);
+    padding: 5px 0px 0px 35px;
+    top: 10vmin;
+    position: relative;
+    border-radius: 5%;
+}
+</style>
+
+<body>
+
+<div class="container">
+  <div class="designer-log-in">
+    <h2>Log in</h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end -%>
+
+      <div class="actions">
+        <%= f.submit "Log in" %>
+      </div>
+    <% end %>
+
+    <%= render "designers/shared/links" %>
+
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "designers/shared/links" %>
+</body>

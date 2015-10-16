@@ -1,29 +1,71 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<style type="text/css">
+  body{
+    background-image: url("../assets/usersignup.jpg");
+    background-repeat: repeat-y;
+    background-size: 100% 100%;
+  }
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  .user-sign-up-caption{
+    position: relative;
+    top: 10vmin;
+    background-color: rgba(255,255,255,0.8);
+    background-size: 100%;
+    padding: 53px;
+    margin-bottom: 10vh;    
+  }
+
+  .user-sign-up-caption p{
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  .user-sign-up-caption p b{
+    font-size: 24px;
+  }
+
+</style>
+
+
+<body>
+<div class="container">
+  <div class="row">
+    <div class=" col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+      <div class="user-sign-up-caption">
+        <p>Everyone will always want to get their own dream house, but you have no clue where to start the design. Now we have the solution for your. We have thousands of profesionals Interior Designer will provide their best service to you. You can look through their profile and project gallery and contact with your desire Interior Designer. You can always save their designs into your Ideabook. So <b>JOIN US NOW!!!</b></p>
+      </div>
+    </div>
+    <div class=" col-xs-10 col-xs-offset-2 col-sm-11 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1 ">
+      <h2>Sign up</h2>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up" %>
+        </div>
+      <% end %>
+
+      <%= render "users/shared/links" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
+</body>

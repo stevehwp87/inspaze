@@ -1,0 +1,54 @@
+<head>
+<style>
+
+
+  .album-cover {
+    word-wrap: break-word;
+    /*border: 2px solid;*/
+    width: 30vmin;
+    height: 30vmin;
+    padding-top: 12vmin;
+    color: #C0C2C3;
+    border-radius: 10%;
+    font-size: 4vmin;
+    margin-bottom: 3vmin;
+    background-image: url("assets/low_contrast_linen.png");
+    background-size: 200px 200px;
+  }
+
+
+  .album-image img{
+    width: 30vmin;
+    height: 30vmin;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100%;
+  }
+
+
+</style>
+</head>
+<body>
+<% @albums.each do |album| %>
+<div class=" col-xs-6 col-md-3 album-image" id="album_<%= album.id %>" style="padding:1vmin; margin-bottom: 5vmin">
+
+  <% if album.photos.exists? %>
+
+    <div class="text-center">
+      <%= link_to(image_tag(album.photos.first.image_url(:thumb)),album_path(album.id), :"title" => album.title, :class => "img-responsive " ) %>
+    </div>
+    <div class="text-center"><h4><strong><%= album.title %></strong></h4></div>
+   
+
+  <% else %>
+
+    <div class="text-center">
+       <%= link_to(image_tag("album.png"),album_path(album.id), :"title" => album.title, :class => "img-responsive" ) %>
+    </div>
+    <div class="text-center"><h4><strong><%= album.title %></strong></h4></div>
+   
+
+  <% end %>
+  </div>
+  <% end %>

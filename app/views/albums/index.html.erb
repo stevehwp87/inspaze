@@ -1,3 +1,16 @@
+<head>
+  <style type="text/css">
+  .image-guideline{
+    padding-left: 5vmin;
+    margin-top: 5vmin;
+  }
+
+  .image-guideline p{
+    line-height: 3px;
+    font-size: 15px;
+   }
+  </style>
+</head>
 <div class="container">
  <hr>
 <h3 class="text-center">Project Album</h3>
@@ -10,7 +23,6 @@
       New Album
       </button>
     </div>
-  </div>
 
  <br>
 
@@ -36,11 +48,19 @@
         <div class="modal-body">
           <%= f.label :title %>
           <%= f.text_field :title, class: "form-control album_title" %>
+          <div class="image-guideline">
+            <p>Please upload images with the guidelines below </p>
+            <p><small><i class="fa fa-circle"></i>   Good quality images(max 2MB)</small></p>
+            <p><small><i class="fa fa-circle"></i>   File type jpg / jpeg / gif / png only</small></p>
+            <p><small><i class="fa fa-circle"></i>   Photo with no watermark or only small watermark</small></p>
+            <p><small><i class="fa fa-circle"></i>   Photo that do not meet the guideline will be removed</small></p>
+          </div>
         </div>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
           <%= submit_tag "Create", class: "btn btn-primary btn-sm"%>
+
         </div>
 
       </div>

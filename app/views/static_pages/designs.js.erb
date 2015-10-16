@@ -1,0 +1,13 @@
+
+$( "#favorite_red_<%= photo.id %>" ).on( "click", function() {
+  // $(this).html("<%= photo.unliked_by current_user %>");
+  // $(this).replaceWith("<img src='assets/favorite.png'/>");
+  alert("hello");
+});
+
+$( "#favorite_<%= photo.id %>" ).on( "click", function() {
+  $(this).html("<%= photo.liked_by current_user %>");
+  $(this).replaceWith("<img src='assets/favorite_red.png'/>");
+   alert("hello");
+});
+

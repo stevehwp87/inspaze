@@ -1,0 +1,169 @@
+<style>
+.blueimp-gallery > .description {
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  color: #fff;
+  display: none;
+}
+.blueimp-gallery-controls > .description {
+  display: block;
+}
+
+.gallery-image img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 33vw;
+  height: 33vw;
+  }
+
+@media screen and (min-width: 1000px) {
+  .gallery-image img {
+    width: 20vw;
+    height: 20vw;
+  }
+}
+
+
+.gallery-caption{
+  position: relative;
+  top: -8vmin;
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 0 0px;
+  width: 33vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 1000px) {
+  .gallery-caption {
+    width: 20vw;
+  }
+}
+
+
+.gallery-caption img{
+  position: relative;
+  width: 5vmin;
+  padding: 0px 1vmin;
+  margin-right: 1vmin;
+  margin-left: 1vmin;
+  
+}
+
+.gallery-caption .dropdown-menu{
+  margin-left: auto;
+  margin-right: auto;
+  right: 0;
+  width: 0;
+  padding-top: 8px;
+}
+.gallery-caption img:hover{
+  transform: scale(1.5,1.5)
+}
+
+
+.btn-group-lg>.btn, .btn-lg{
+  width: 60vmin;
+  margin: 1vmin;
+}
+
+</style>
+
+
+<div class="container">
+
+  <div id="blueimp-gallery" class="blueimp-gallery">
+      <!-- The container for the modal slides -->
+      <div class="slides"></div>
+      <!-- Controls for the borderless lightbox -->
+      <h3 class="title"></h3>
+      <p class="description"></p>
+      <a class="prev">‹</a>
+      <a class="next">›</a>
+      <a class="close">×</a>
+      <a class="play-pause"></a>
+      <ol class="indicator"></ol>
+      <!-- The modal dialog, which will be used to wrap the lightbox content -->
+      <div class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" aria-hidden="true">&times;</button>
+              <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body next"></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left prev">
+                  <i class="glyphicon glyphicon-chevron-left"></i>
+                  Previous
+              </button>
+              <button type="button" class="btn btn-primary next">
+                  Next
+                  <i class="glyphicon glyphicon-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div id="links">
+
+	  <hr>
+	  	<h2 class="text-center">My Ideabook</h2>
+		<hr>
+		
+		<% @liked_photos.each do |photo| %>
+
+      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3"  style="padding:1vmin">
+		    <div class="gallery-image">
+		      <%= link_to(image_tag(photo.image_url(:thumb)),image_path(photo.image_url), :"title" => photo.name, :"description" => photo.name, :"data-gallery" => "" ,:class => "img-responsive") %>
+		    </div>
+		    <div class="row text-center gallery-caption" style="padding-top: 1vmin; padding-bottom: 2vmin">
+      
+            <%= link_to (image_tag('detail.png')), profile_designer_path(photo.album.designer_id),:"title" => "Designer Details" ,:class => "designer-profile"%>
+            
+              <% if @user.voted_for? photo %>
+                <img src="../../assets/favorite_red.png" title="Favourited" id="favorite_red_<%= photo.id %>" , remote: true> 
+              <% else%>
+                <img src="../../assets/favorite.png" title="Favourite" id="favorite_<%= photo.id %>"  , remote: true> 
+              <% end %>
+ 
+            <img src="../../assets/share.png" title="Share" class="dropdown-toggle" data-toggle="dropdown">
+            
+            <ul class="dropdown-menu text-center">
+              <li class="text-center"><%= social_share_button_tag(photo.name, :popup => "true" ) %></li>
+            </ul>
+        
+        </div>
+		  </div>
+      <script>
+        $(document).ready(function(){
+          $("#myfavoriteBtn_<%= photo.id %>").click(function(){
+            $("#myfavoriteModal_<%= photo.id %>").modal();
+          });
+        });
+      </script>
+      
+    <% end %>
+  </div>
+  
+</div>
+
+	<script>
+		blueimp.Gallery(
+	    document.getElementById('links'),
+	    {
+	        onslide: function (index, slide) {
+	            var text = this.list[index].getAttribute('data-description'),
+	                node = this.container.find('.description');
+	            node.empty();
+	            if (text) {
+	                node[0].appendChild(document.createTextNode(text));
+	            }
+	        }
+	    }
+	);
+	</script>

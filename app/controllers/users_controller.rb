@@ -23,6 +23,11 @@ before_action :authenticate_user!
 		end
 	end
 
+	def ideabook
+		@user = current_user
+		@liked_photos = @user.find_liked_items 
+	end
+
 	private
 
 	def user_params

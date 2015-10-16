@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
 
   devise_for :admins
-  mount RailsAdmin::Engine => '/inspaze_admin871127', as: 'rails_admin'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :designers, controllers: { registrations: "registrations" }
   devise_for :users, controllers: { registrations: "registrations" }
-  resources :users, :only => [:show, :edit, :update] 
+  resources :users, :only => [:show, :edit, :update]do
+    member do
+      get 'ideabook'
+    end
+  end 
 
-  resources :designers, :only => [:show, :edit, :update] 
+  resources :designers, :only => [:show, :edit, :update] do
+    member do
+      get 'profile'
+      get 'gallery'
+    end
+  end
  
 
 resources :albums do
@@ -14,23 +23,26 @@ resources :albums do
 end
 
 
-
+get '/like/:id' => "static_pages#like"
+get '/unlike/:id' => "static_pages#unlike"
 resources :photos, only: [:edit, :update, :destroy]
 
-resources :contacts, only: [:new, :create, :index]
-
-resources :designers do
-  member do
-    get 'profile'
-    get 'gallery'
-  end
-end
+resources :contacts, only: [:new, :create]
+resource :inbox, :controller => 'inbox', :only => [:show,:create]
+# resources :designers do
+#   member do
+#     get 'profile'
+#     get 'gallery'
+#   end
+# end
 
   root             'static_pages#home'
   get 'users_type'    => 'static_pages#users_type'
   get 'contact'       => 'static_pages#contact'
   get 'designs'       => 'static_pages#designs'
   get 'products'      => 'static_pages#products'
+  get 'index'         => 'static_pages#index'
+  get 'banana'         => 'static_pages#banana'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
