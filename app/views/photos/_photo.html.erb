@@ -43,8 +43,10 @@
         </div>
 
         <div class="modal-body">
-          <p><%= f.text_field :name, placeholder: "name",class: "form-control"%></p>
-          <p><%= f.text_field :tag_list, placeholder: "Tags(seperate by comma)",class: "form-control" %></p>
+          <p><strong>Name: </strong><%= f.text_field :name, placeholder: "Name",class: "form-control"%>
+          </p>
+          <p><strong>Tags: </strong><%= f.text_field :tag_list, placeholder: "Tags(seperate by comma)",class: "form-control" %></p>
+          <p><strong>Area: </strong><%= grouped_collection_select(:photo, :area_id, Type.all, :areas, :name, :id, :name) %></p>
         </div>
 
         <div class="modal-footer">

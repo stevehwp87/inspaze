@@ -74,7 +74,7 @@
     }
 
     .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
-    background-image: url("assets/ic_keyboard_arrow_left_black_48px.svg");
+    background-image: url(<%= asset_url('ic_keyboard_arrow_left_black_48px.svg') %>);
     left: 5vmin;
     right: auto;
     background-size: 50px;
@@ -85,7 +85,7 @@
     }
 
     .swiper-button-next, .swiper-container-rtl .swiper-button-prev{
-      background-image: url("assets/ic_keyboard_arrow_right_black_48px.svg");
+    background-image: url(<%= asset_url('ic_keyboard_arrow_right_black_48px.svg') %>);
     right: 5vmin;
     left: auto;
     background-size: 50px;
@@ -148,7 +148,7 @@
         </div>
 
         <div class="swiper-slide">
-          <div class="fill" style="background-image:url(<%= asset_url('page3.jpg') %>') "></div>
+          <div class="fill" style="background-image:url(<%= asset_url('page3.jpg') %>) "></div>
           <div class="carousel-caption">
             <h2>Get Interior Design Ideas From Our Professionals</h2>
             <button type="button" class="btn btn-default btn-lg">Learn More</button>
