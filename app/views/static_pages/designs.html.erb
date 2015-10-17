@@ -138,19 +138,19 @@
             
               <% if @user.voted_for? photo %>
                 <%= link_to( "/unlike/"+ photo.id.to_s, remote: true) do %>
-                  <img src=<%= asset_url('favorite_red.png')%> title="Favourited" id="favorite_red_<%= photo.id %>"> 
-                  <img src=<%= asset_url('favorite.png')%> title="Favourited" id="favorite_<%= photo.id %>" style="display:none"> 
+                  <img src="<%= image_url('favorite_red.png')%>" title="Favourited" id="favorite_red_<%= photo.id %>"> 
+                  <img src="<%= image_url('favorite.png')%>" title="Favourited" id="favorite_<%= photo.id %>" style="display:none"> 
                 <%end%>
               <% else%>
                 <%= link_to( "/like/"+ photo.id.to_s, remote: true) do %>
-                  <img src=<%= asset_url('favorite.png')%> title="Favourite" id="favorite_<%= photo.id %>">
-                  <img src=<%= asset_url('favorite_red.png')%> title="Favourited" id="favorite_red_<%= photo.id %>" style="display:none">
+                  <img src="<%= image_url('favorite.png')%>" title="Favourite" id="favorite_<%= photo.id %>">
+                  <img src="<%= image_url('favorite_red.png')%>" title="Favourited" id="favorite_red_<%= photo.id %>" style="display:none">
                 <%end%>
               <% end %>
 
             <% elsif designer_signed_in? %>
             <% else %>
-              <img src=<%= asset_url('favorite.png') %> title="Favourite" id="myfavoriteBtn_<%= photo.id %>"> 
+              <img src="<%= image_url('favorite.png') %>" title="Favourite" id="myfavoriteBtn_<%= photo.id %>"> 
 
                 <!-- Modal -->
               <div class="modal fade" id="myfavoriteModal_<%= photo.id %>" role="dialog">
