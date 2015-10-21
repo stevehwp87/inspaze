@@ -16,8 +16,9 @@ class AlbumsController < ApplicationController
   def show
     # @photos = @album.photos.all
     # @photo = Photo.new
+    @user = current_user
     @album = Album.find(params[:id])
-    @photos = @album.photos
+    @photos = @album.photos.paginate(:page => params[:page], :per_page => 40)
   end
 
   # GET /albums/new
@@ -76,6 +77,22 @@ class AlbumsController < ApplicationController
       format.html { redirect_to albums_url, notice: 'Album was successfully destroyed.' }
       format.json { head :no_content }
       format.js
+    end
+  end
+
+  def unlike
+    @photo = Photo.find(params[:id])
+    @photo.unliked_by current_user
+    respond_to do |format|
+      format.js 
+    end
+  end
+
+  def like
+    @photo = Photo.find(params[:id])
+    @photo.liked_by current_user
+    respond_to do |format|
+      format.js 
     end
   end
 

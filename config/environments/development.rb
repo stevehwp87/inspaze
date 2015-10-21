@@ -35,7 +35,18 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-
+  config.action_mailer.default_url_options = { :host => 'localhost' }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+   :tls => true,
+   :address => "smtp.zoho.com",
+   :port => 465,
+   :domain => "inspaze.com",
+   :authentication => :login,
+   :user_name => ENV["zoho_username"],
+   :password => ENV["zoho_password"]
+ }
+
 end

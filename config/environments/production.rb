@@ -76,4 +76,15 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.default_url_options = { :host => 'inspaze.herokuapp.com' }
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+   :tls => true,
+   :address => "smtp.zoho.com",
+   :port => 465,
+   :domain => "inspaze.com",
+   :authentication => :login,
+   :user_name => ENV["zoho_username"],
+   :password => ENV["zoho_password"]
+ }
 end

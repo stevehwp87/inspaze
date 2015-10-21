@@ -35,9 +35,8 @@
 
 
 		  <div class="photo-action ">
-		  <%= link_to 'Gallery', designs_path,:type => "button" ,:class => "btn btn-default",:"title" => "Gallery" %>
-        <%= link_to 'Designer', profile_designer_path(@photo.album.designer_id),:type => "button" ,:class => "btn btn-default",:"title" => "Designer Details" %>
-				<button title="Favourite" type="button" class="btn btn-default"><i class="fa fa-heart-o"></i></button>
+		    <%= link_to 'Gallery', designs_path,:type => "button" ,:class => "btn btn-default",:"title" => "More designs" %>
+        <%= link_to 'Designer Profile', profile_designer_path(@photo.album.designer_id),:type => "button" ,:class => "btn btn-default",:"title" => "Designer Details" %>
 				<button title="Share" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="fa fa-share-alt"></i></button>
 				</button>
 				<ul class="dropdown-menu">

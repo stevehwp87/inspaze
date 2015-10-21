@@ -34,15 +34,7 @@
 				<div class="col-md-8"><%= @designer.phone_no %></div>
 			</div>
 
-			<div class="form-group">
-				<div class="col-md-4"><%= f.label :address %></div>
-				<div class="col-md-8"><%= @designer.address %></div>
-			</div>
-
-			<div class="form-group">
-				<div class="col-md-4"><%= f.label :country %></div>
-				<div class="col-md-8"><%= @designer.country %></div>
-			</div>
+			
 
 			<div class="form-group">
 				<div class="col-md-4"><%= f.label :years_in_business %></div>
@@ -83,9 +75,20 @@
 				<div class="col-md-8"><%= @designer.company_name %></div>
 			</div>
 
+
 			<div class="form-group">
-				<div class="col-md-4"><%= f.label :website %></div>
-				<div class="col-md-8"><%= @designer.website %></div>
+				<div class="col-md-4"><%= f.label :address %></div>
+				<div class="col-md-8"><%= @designer.address %></div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-md-4"><%= f.label :state %></div>
+				<div class="col-md-8"><%= @designer.state %></div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-md-4"><%= f.label :country %></div>
+				<div class="col-md-8"><%= @designer.country %></div>
 			</div>
 
 		</div>

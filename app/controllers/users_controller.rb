@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class UsersController < ApplicationController
 
 before_action :authenticate_user! 
@@ -24,9 +26,26 @@ before_action :authenticate_user!
 	end
 
 	def ideabook
+
 		@user = current_user
-		@liked_photos = @user.find_liked_items 
+		@liked_photos = @user.find_liked_items.paginate(:page => params[:page], :per_page => 40)
 	end
+
+	def unlike
+    @photo = Photo.find(params[:id])
+    @photo.unliked_by current_user
+    respond_to do |format|
+      format.js 
+    end
+  end
+
+  def like
+    @photo = Photo.find(params[:id])
+    @photo.liked_by current_user
+    respond_to do |format|
+      format.js 
+    end
+  end
 
 	private
 

@@ -36,7 +36,7 @@ before_action :authenticate_designer! , except: [:profile, :gallery]
 
 	def designer_params
 		params.require(:designer).permit(:first_name, :last_name,
-		:date_of_birth, :gender, :phone_no, :company_name, :address, :country, :years_in_business, :profession, :position, :display_name, :display_email, :display_contact, :website, :business_description)
+		:date_of_birth, :gender, :phone_no, :company_name, :address, :country, :years_in_business, :profession, :position, :display_name, :display_email, :display_contact, :website, :business_description, :state)
 	end
 
 end

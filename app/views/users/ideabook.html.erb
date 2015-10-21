@@ -1,4 +1,13 @@
-<style>
+
+
+
+
+
+
+
+
+<style type="text/css">
+  
 .blueimp-gallery > .description {
   position: absolute;
   top: 30px;
@@ -71,9 +80,8 @@
 
 </style>
 
-
+<body>
 <div class="container">
-
   <div id="blueimp-gallery" class="blueimp-gallery">
       <!-- The container for the modal slides -->
       <div class="slides"></div>
@@ -111,34 +119,82 @@
 
   <div id="links">
 
-	  <hr>
-	  	<h2 class="text-center">My Ideabook</h2>
-		<hr>
-		
-		<% @liked_photos.each do |photo| %>
+    <hr>
+        <h2 class="text-center">My Ideabook</h2>
+    <hr>
+
+    <% @liked_photos.each do |photo| %>
 
       <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3"  style="padding:1vmin">
-		    <div class="gallery-image">
-		      <%= link_to(image_tag(photo.image_url(:thumb)),image_path(photo.image_url), :"title" => photo.name, :"description" => photo.name, :"data-gallery" => "" ,:class => "img-responsive") %>
-		    </div>
-		    <div class="row text-center gallery-caption" style="padding-top: 1vmin; padding-bottom: 2vmin">
+        <div class="gallery-image">
+          <%= link_to(image_tag(photo.image_url(:thumb)),image_path(photo.image_url), :"title" => photo.name, :"description" => photo.name, :"data-gallery" => "" ,:class => "img-responsive") %>
+        </div>
+        <div class="row text-center gallery-caption" style="padding-top: 1vmin; padding-bottom: 2vmin">
       
             <%= link_to (image_tag('detail.png')), profile_designer_path(photo.album.designer_id),:"title" => "Designer Details" ,:class => "designer-profile"%>
+
+            <% if user_signed_in? %>
             
               <% if @user.voted_for? photo %>
-                <img src="../../assets/favorite_red.png" title="Favourited" id="favorite_red_<%= photo.id %>" , remote: true> 
+                <%= link_to( "/unlike/"+ photo.id.to_s, remote: true) do %>
+                  <img src="<%= image_url('favorite_red.png')%>" title="Favourited" id="favorite_red_<%= photo.id %>"> 
+                  <img src="<%= image_url('favorite.png')%>" title="Favourited" id="favorite_<%= photo.id %>" style="display:none"> 
+                <%end%>
               <% else%>
-                <img src="../../assets/favorite.png" title="Favourite" id="favorite_<%= photo.id %>"  , remote: true> 
+                <%= link_to( "/like/"+ photo.id.to_s, remote: true) do %>
+                  <img src="<%= image_url('favorite.png')%>" title="Favourite" id="favorite_<%= photo.id %>">
+                  <img src="<%= image_url('favorite_red.png')%>" title="Favourited" id="favorite_red_<%= photo.id %>" style="display:none">
+                <%end%>
               <% end %>
- 
-            <img src="../../assets/share.png" title="Share" class="dropdown-toggle" data-toggle="dropdown">
+
+            <% elsif designer_signed_in? %>
+            <% else %>
+              <img src="<%= image_url('favorite.png') %>" title="Favourite" id="myfavoriteBtn_<%= photo.id %>"> 
+
+                <!-- Modal -->
+              <div class="modal fade" id="myfavoriteModal_<%= photo.id %>" role="dialog">
+                <div class="modal-dialog">
+                
+                  <!-- Modal content-->
+                  <div class="modal-content">
+
+                    <div class="modal-header" style="padding:15px 20px;">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h2 style="text-align:center"> Welcome to INSPAZE</h2>
+                    </div>
+
+                    <div class="modal-body" style="padding:40px 50px;">
+                    <h4>Sign Up / Sign In to save the design into your Ideabook</h4> <BR>
+                    <hr>
+  
+                      <div>
+                        <%= link_to "Sign Up", new_user_registration_path, :class => "btn btn-success btn-lg" %>
+                      </div>
+
+                      
+                        <h4>OR</h4>
+                    
+
+                      <div>
+                        <%= link_to "Sign In", new_user_session_path, :class => "btn btn-primary btn-lg" %>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+             <!-- Modal -->
+            <% end %>
+            
+            <img src="<%= image_url('share.png')%>" title="Share" class="dropdown-toggle" data-toggle="dropdown">
             
             <ul class="dropdown-menu text-center">
-              <li class="text-center"><%= social_share_button_tag(photo.name, :popup => "true" ) %></li>
+              <li class="text-center"><%= social_share_button_tag(photo.name, :url  => "http://www.inspaze.com//albums/#{photo.album_id}/photos/#{photo.id}",  :image => image_tag(photo.image_url), via: "INSPAZE" , desc: photo.name ) %></li>
             </ul>
         
         </div>
-		  </div>
+      </div>
       <script>
         $(document).ready(function(){
           $("#myfavoriteBtn_<%= photo.id %>").click(function(){
@@ -149,21 +205,29 @@
       
     <% end %>
   </div>
-  
+  <%= will_paginate @liked_photos %>
 </div>
 
-	<script>
-		blueimp.Gallery(
-	    document.getElementById('links'),
-	    {
-	        onslide: function (index, slide) {
-	            var text = this.list[index].getAttribute('data-description'),
-	                node = this.container.find('.description');
-	            node.empty();
-	            if (text) {
-	                node[0].appendChild(document.createTextNode(text));
-	            }
-	        }
-	    }
-	);
-	</script>
+  <script>
+    blueimp.Gallery(
+      document.getElementById('links'),
+      {
+          onslide: function (index, slide) {
+              var text = this.list[index].getAttribute('data-description'),
+                  node = this.container.find('.description');
+              node.empty();
+              if (text) {
+                  node[0].appendChild(document.createTextNode(text));
+              }
+          }
+      }
+  );
+  </script>
+
+  
+
+ 
+
+
+
+</body>
