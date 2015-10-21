@@ -14,7 +14,7 @@ class StaticPagesController < ApplicationController
   	# @photos = Photo.all
    #  # @photo -Photo.find(params[:id])
     @user = current_user
-    @photos = Photo.all.paginate(:page => params[:page], :per_page => 40)
+    @photos = Photo.all.order(name: :asc).paginate(:page => params[:page], :per_page => 40)
     respond_to do |format|
       format.html
       format.json
