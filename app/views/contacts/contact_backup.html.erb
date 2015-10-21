@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="contact-form" style="width:85vmin; margin-left:auto; margin-right:auto; background-color:#F4F4F7;padding: 8vmin 5vmin; margin-bottom:50px;">
+
+<div class="text-center">
+  <h2 style="color:white; background-color:#5798E8; padding: 13px 10px; position: relative; top: -30px;">Contact Us</h2>
+</div>
+
+<h4>Please fill in the form below or email to us <a href="mailto:info@inspaze.com?Subject=Hello%20again" target="_top">info@inspaze.com</a></h4>
+    <%= form_for(@contact) do |f| %>
+    <% if @contact.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+        <ul>
+        <% @contact.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name ,class: "form-control"%><br>
+        <%= f.label :email %><br>
+        <%= f.text_field :email ,class: "form-control"%><br>
+        <%= f.label :subject %><br>
+        <%= f.text_field :subject ,class: "form-control"%><br>
+        <%= f.label :message %><br>
+        <%= f.text_area :message ,class: "form-control" , style: "height:150px"%><br>
+        
+      </div>
+      <div class="actions">
+        <%= submit_tag "Send", class: "btn btn-primary pull-right"%>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+

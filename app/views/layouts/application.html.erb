@@ -107,8 +107,7 @@ left: 5vmin;
         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
           <li role="presentation" class="dropdown-header text-center" style="font-size:25px;">INSPAZE</li>
           <li role="presentation"><%= link_to "Home", root_path %></li>
-          <li role="presentation"><%= link_to "Gallery", designs_path %></li>
-          <li role="presentation"><%= link_to "Products", products_path %></li>
+          <li role="presentation"><%= link_to "Photo Gallery", designs_path %></li>
           <li role="presentation"><%= link_to "Contact Us", new_contact_path %></li>
           <li role="presentation" class="divider"></li>
           <% if user_signed_in? %>
@@ -158,6 +157,10 @@ left: 5vmin;
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
               <%= link_to "I'm Interior Designer", new_designer_registration_path %>
+            </div>
+            <div>
+            <hr>
+            <p>If you want to advertise your products, please contact us <b>info@inspaze.com</b> Thanks.</p>
             </div>
           </div>
         </div>
